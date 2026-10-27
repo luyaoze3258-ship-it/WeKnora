@@ -1,85 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-  <defs>
-    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F0FDF4"/>
-      <stop offset="100%" stop-color="#D1FAE5"/>
-    </linearGradient>
-    <linearGradient id="brand2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#059669"/>
-      <stop offset="100%" stop-color="#10B981"/>
-    </linearGradient>
-    <filter id="soft2" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#065F46" flood-opacity="0.12"/>
-    </filter>
-  </defs>
-
-  <rect width="800" height="600" fill="url(#bg2)"/>
-  <circle cx="120" cy="90" r="120" fill="#10B981" opacity="0.05"/>
-  <circle cx="700" cy="520" r="140" fill="#34D399" opacity="0.06"/>
-
-  <text x="64" y="84" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#065F46">Hybrid Search Strategy</text>
-  <text x="64" y="116" font-family="Arial, sans-serif" font-size="15" fill="#059669">Keyword + vector semantics + knowledge graph, fused for the best result</text>
-
-  <g filter="url(#soft2)">
-    <rect x="64" y="148" width="672" height="396" rx="20" fill="#FFFFFF"/>
-  </g>
-
-  <!-- BM25 -->
-  <g transform="translate(96, 184)">
-    <rect width="184" height="220" rx="14" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
-    <rect width="184" height="48" rx="14" fill="#FEF3C7"/>
-    <rect y="34" width="184" height="14" fill="#FEF3C7"/>
-    <text x="92" y="31" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#92400E" text-anchor="middle">BM25 Keyword</text>
-    <g font-family="Arial, sans-serif" font-size="12.5" fill="#78350F">
-      <rect x="20" y="70" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#FDE68A"/><text x="92" y="90" text-anchor="middle">TF-IDF weights</text>
-      <rect x="20" y="110" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#FDE68A"/><text x="92" y="130" text-anchor="middle">Term frequency</text>
-      <rect x="20" y="150" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#FDE68A"/><text x="92" y="170" text-anchor="middle">Exact match</text>
-    </g>
-    <text x="92" y="206" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#B45309" text-anchor="middle">Strong on terms</text>
-  </g>
-
-  <!-- Vector -->
-  <g transform="translate(308, 184)">
-    <rect width="184" height="220" rx="14" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
-    <rect width="184" height="48" rx="14" fill="#DBEAFE"/>
-    <rect y="34" width="184" height="14" fill="#DBEAFE"/>
-    <text x="92" y="31" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1E40AF" text-anchor="middle">Vector Semantic</text>
-    <g font-family="Arial, sans-serif" font-size="12.5" fill="#1E3A8A">
-      <rect x="20" y="70" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#BFDBFE"/><text x="92" y="90" text-anchor="middle">Embedding</text>
-      <rect x="20" y="110" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#BFDBFE"/><text x="92" y="130" text-anchor="middle">Cosine similarity</text>
-      <rect x="20" y="150" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#BFDBFE"/><text x="92" y="170" text-anchor="middle">ANN search</text>
-    </g>
-    <text x="92" y="206" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#2563EB" text-anchor="middle">Understands meaning</text>
-  </g>
-
-  <!-- Graph -->
-  <g transform="translate(520, 184)">
-    <rect width="184" height="220" rx="14" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
-    <rect width="184" height="48" rx="14" fill="#D1FAE5"/>
-    <rect y="34" width="184" height="14" fill="#D1FAE5"/>
-    <text x="92" y="31" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#065F46" text-anchor="middle">Knowledge Graph</text>
-    <g font-family="Arial, sans-serif" font-size="12.5" fill="#064E3B">
-      <rect x="20" y="70" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/><text x="92" y="90" text-anchor="middle">Entity recognition</text>
-      <rect x="20" y="110" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/><text x="92" y="130" text-anchor="middle">Relation paths</text>
-      <rect x="20" y="150" width="144" height="30" rx="8" fill="#FFFFFF" stroke="#A7F3D0"/><text x="92" y="170" text-anchor="middle">Subgraph match</text>
-    </g>
-    <text x="92" y="206" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#059669" text-anchor="middle">Reasons over links</text>
-  </g>
-
-  <g stroke="#10B981" stroke-width="2.5" fill="none" stroke-linecap="round">
-    <path d="M188 412 V446 H400 V470" marker-end="url(#arr2)"/>
-    <path d="M400 412 V470" marker-end="url(#arr2)"/>
-    <path d="M612 412 V446 H400" />
-  </g>
-
-  <g transform="translate(220, 478)">
-    <rect width="360" height="50" rx="14" fill="url(#brand2)" filter="url(#soft2)"/>
-    <text x="180" y="31" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">RRF fusion ranking -&gt; best result</text>
-  </g>
-
-  <defs>
-    <marker id="arr2" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
-      <polygon points="0 0, 9 3, 0 6" fill="#10B981"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="Noto Sans SC, PingFang SC, Microsoft YaHei, sans-serif">
+<style>
+*{transform-box:fill-box}
+.draw{animation:draw 4s cubic-bezier(.22,.61,.36,1) infinite both}
+@keyframes draw{0%{stroke-dashoffset:var(--len)}30%,100%{stroke-dashoffset:0}}
+.ring{transform-origin:center;animation:ring 2s ease-out infinite}
+@keyframes ring{from{transform:scale(1);opacity:.5}to{transform:scale(1.9);opacity:0}}
+.pulse{transform-origin:center;animation:pulse 4s cubic-bezier(.22,.61,.36,1) infinite both}
+@keyframes pulse{0%,100%{transform:none}12%{transform:scale(1.02)}24%{transform:none}}
+.hl{animation:hl 4s cubic-bezier(.22,.61,.36,1) infinite both}
+@keyframes hl{0%,100%{stroke:#e4e8f0}10%,30%{stroke:#2f5fd0}40%{stroke:#e4e8f0}}
+.pop{transform-origin:center;animation:pop 4s cubic-bezier(.3,1.5,.5,1) infinite both}
+@keyframes pop{0%,4%{transform:scale(.7);opacity:0}14%,100%{transform:none;opacity:1}}
+.fill{transform-origin:left;animation:fill 4s cubic-bezier(.22,.61,.36,1) infinite both}
+@keyframes fill{0%,8%{transform:scaleX(.05)}60%,100%{transform:none}}
+.move{animation:move 4s cubic-bezier(.22,.61,.36,1) infinite both}
+@keyframes move{0%,10%{transform:translateX(0);opacity:0}18%{opacity:1}48%{transform:translateX(var(--dx));opacity:1}55%,100%{transform:translateX(var(--dx));opacity:0}}
+.sweep{animation:sweep 4s cubic-bezier(.22,.61,.36,1) infinite both}
+@keyframes sweep{0%,20%{transform:translateX(-160px);opacity:0}30%{opacity:1}70%{transform:translateX(660px);opacity:0}100%{opacity:0;transform:translateX(660px)}}
+.d1{animation-delay:.35s}.d2{animation-delay:.7s}.d3{animation-delay:1.05s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.move,.sweep,.ring{display:none}.draw{stroke-dashoffset:0!important}}
+</style>
+<rect x="2" y="2" width="796" height="596" rx="20" fill="#fff" stroke="#e4e8f0"/>
+<text x="48" y="64" font-size="18" fill="#8492a8" font-weight="500">智员知识库 · 往上一级，少一层活</text>
+<line x1="108" y1="112" x2="692" y2="112" stroke="#eef1f7" stroke-width="4" stroke-linecap="round"/>
+<line x1="108" y1="112" x2="108" y2="112" stroke="#2f5fd0" stroke-width="4" stroke-linecap="round"/>
+<line class="draw" style="--len:195" stroke-dasharray="195" x1="108" y1="112" x2="303" y2="112" stroke="#2f5fd0" stroke-width="4" stroke-linecap="round"/>
+<circle cx="108" cy="112" r="18" fill="#2f5fd0"/><path d="M101 112l5 5 9-10" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="108" y="160" font-size="18" fill="#8492a8" text-anchor="middle" font-weight="500">你问它答</text>
+<circle class="ring" cx="303" cy="112" r="18" fill="none" stroke="#2f5fd0" stroke-width="2"/><circle cx="303" cy="112" r="18" fill="#2f5fd0"/><text x="303" y="119" font-size="18" fill="#fff" text-anchor="middle" font-weight="700">2</text>
+<text x="303" y="160" font-size="18" fill="#232a38" text-anchor="middle" font-weight="700">自己拆步骤</text>
+<circle cx="497" cy="112" r="17" fill="#fff" stroke="#d5dcea" stroke-width="2"/><text x="497" y="119" font-size="18" fill="#8492a8" text-anchor="middle" font-weight="600">3</text>
+<text x="497" y="160" font-size="18" fill="#8492a8" text-anchor="middle" font-weight="500">主动整理</text>
+<circle cx="692" cy="112" r="17" fill="#fff" stroke="#d5dcea" stroke-width="2"/><text x="692" y="119" font-size="18" fill="#8492a8" text-anchor="middle" font-weight="600">4</text>
+<text x="692" y="160" font-size="18" fill="#8492a8" text-anchor="middle" font-weight="500">私有落地</text>
+<line x1="48" y1="190" x2="752" y2="190" stroke="#eef1f7" stroke-width="2"/>
+<text x="48" y="246" font-size="34" font-weight="700" fill="#2f5fd0">02</text><text x="104" y="246" font-size="34" font-weight="700" fill="#232a38">自己拆步骤</text><text x="48" y="284" font-size="20" fill="#5b6778">第二级：给个目标，它拆步骤、查库、调工具，全程可见</text>
+<rect x="48" y="312" width="704" height="54" rx="12" fill="#2f5fd0"/><text x="72" y="346" font-size="20" fill="#fff" font-weight="500">目标：汇总三份合同里的违约条款，出一份报告</text>
+<g class="pop d0"><circle cx="66" cy="398" r="11" fill="#eaf0fd"/><path d="M61 398l4 4 7-8" fill="none" stroke="#2f5fd0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g><text x="88" y="405" font-size="19" fill="#232a38" font-weight="600">查知识库</text><text x="182" y="405" font-size="18" fill="#5b6778">定位 3 份合同、12 段相关条款</text>
+<g class="pop d1"><circle cx="66" cy="438" r="11" fill="#eaf0fd"/><path d="M61 438l4 4 7-8" fill="none" stroke="#2f5fd0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g><text x="88" y="445" font-size="19" fill="#232a38" font-weight="600">调用工具</text><text x="182" y="445" font-size="18" fill="#5b6778">MCP 工具比对条款差异</text>
+<g class="pop d2"><circle cx="66" cy="478" r="11" fill="#eaf0fd"/><path d="M61 478l4 4 7-8" fill="none" stroke="#2f5fd0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g><text x="88" y="485" font-size="19" fill="#232a38" font-weight="600">联网补充</text><text x="182" y="485" font-size="18" fill="#5b6778">材料不够时自动搜索</text>
+<g class="pop d3"><circle cx="66" cy="518" r="11" fill="#eaf0fd"/><path d="M61 518l4 4 7-8" fill="none" stroke="#2f5fd0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g><text x="88" y="525" font-size="19" fill="#232a38" font-weight="600">沙箱生成</text><text x="182" y="525" font-size="18" fill="#5b6778">运行脚本，产出 Word 报告</text>
+<g class="pulse"><rect x="520" y="430" width="232" height="104" rx="14" fill="#fff" stroke="#b3c8f4" stroke-width="2"/><rect x="540" y="450" width="40" height="48" rx="6" fill="#eaf0fd"/><text x="560" y="480" font-size="14" fill="#2f5fd0" text-anchor="middle" font-weight="700">DOC</text><text x="594" y="470" font-size="17" fill="#232a38" font-weight="600">违约条款汇总</text><text x="594" y="494" font-size="15" fill="#8492a8">.docx · 可直接下载</text><text x="540" y="522" font-size="15" fill="#1d7f57" font-weight="500">每一步过程都可查看</text></g>
 </svg>

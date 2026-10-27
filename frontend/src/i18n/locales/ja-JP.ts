@@ -1830,37 +1830,37 @@ export default {
     },
     capabilityUnavailable: 'この機能は現在のデプロイでは利用できません。利用可能なページに戻りました。',
     weknoraCloud: {
-      title: 'WeKnora Cloud',
-      description: 'WeKnora CloudのAPPIDとAPPSECRETを設定します。この認証情報はモデルサービスとドキュメント解析エンジンで使用されます。',
+      title: '云端服务',
+      description: '云端服务のAPPIDとAPPSECRETを設定します。この認証情報はモデルサービスとドキュメント解析エンジンで使用されます。',
       viewDocs: 'ドキュメントを表示',
       unconfigured: '認証情報が未設定です。APPIDとAPPSECRETを入力してください。',
       configured: '認証情報は設定済みで、正常に動作しています。',
-      expired: 'WeKnora Cloudの認証情報が無効になりました',
+      expired: '云端服务の認証情報が無効になりました',
       expiredDefault: 'サービス再起動後に暗号化キーが変更されました。保存済みの認証情報を復号できません。認証情報を再入力してください。',
       reconfigure: '再設定',
       appIdLabel: 'APPID',
-      appIdDesc: 'WeKnora CloudのアプリケーションID',
+      appIdDesc: '云端服务のアプリケーションID',
       appIdPlaceholder: 'APPIDを入力',
       appSecretLabel: 'APPSECRET',
-      appSecretDesc: 'WeKnora Cloudのアプリケーションシークレット',
+      appSecretDesc: '云端服务のアプリケーションシークレット',
       appSecretPlaceholder: 'APPSECRETを入力',
       saveHint: '認証情報は検証・暗号化されたうえで保存されます。',
       saveBtn: '認証情報を保存',
       usageTitle: '利用ガイド',
-      usageSteps: '1. APPIDとAPPSECRETを保存\\\n2. 下の「クラウドモデル」でチャット、埋め込み、リランク、vlmを登録\\\n3. 解析エンジン: ナレッジベース設定 → 解析エンジン → WeKnora Cloud',
+      usageSteps: '1. APPIDとAPPSECRETを保存\\\n2. 下の「クラウドモデル」でチャット、埋め込み、リランク、vlmを登録\\\n3. 解析エンジン: ナレッジベース設定 → 解析エンジン → 云端服务',
       fillRequired: 'APPIDとAPPSECRETを入力してください',
       saveSuccess: '認証情報を保存しました',
       saveFailed: '認証情報の保存に失敗しました',
-      credentialConfigured: 'WeKnoraCloudの認証情報は設定済みです。',
+      credentialConfigured: '云端服务の認証情報は設定済みです。',
       credentialExpired: '認証情報が無効になりました。再設定してください。',
-      credentialUnconfigured: 'WeKnoraCloudの認証情報が未設定です。先にAPPIDとAPPSECRETを設定してください。',
+      credentialUnconfigured: '云端服务の認証情報が未設定です。先にAPPIDとAPPSECRETを設定してください。',
       checkingStatus: '認証情報のステータスを確認中...',
       goToSettings: '設定へ移動',
-      modelHintConfigured: 'WeKnoraCloudの認証情報は設定済みです。対応モデルは以下を参照してください:',
+      modelHintConfigured: '云端服务の認証情報は設定済みです。対応モデルは以下を参照してください:',
       modelHintDocsLink: 'APIドキュメント',
       modelsSection: {
         title: 'クラウドモデル',
-        descReady: 'チャット、検索、リランク、画像理解（VLM）の4種類のWeKnora Cloud標準モデルを登録します。',
+        descReady: 'チャット、検索、リランク、画像理解（VLM）の4種類の云端服务標準モデルを登録します。',
         descPending: 'クラウドモデルを追加する前に、上の認証情報を保存してください。',
         statusAdded: '追加済み',
         statusPending: '認証情報が必要',
@@ -1876,10 +1876,10 @@ export default {
       addModelsFailed: 'モデルの追加に失敗しました',
       addModelsEmbeddingFailed: '埋め込みモデルの接続テストに失敗し、ベクトルの次元数を検出できませんでした',
       addModelsDisplayName: {
-        chat: 'WeKnoraCloud Chat',
-        embedding: 'WeKnoraCloud Embedding',
-        rerank: 'WeKnoraCloud ReRank',
-        vllm: 'WeKnoraCloud Vision'
+        chat: '云端服务 Chat',
+        embedding: '云端服务 Embedding',
+        rerank: '云端服务 ReRank',
+        vllm: '云端服务 Vision'
       }
     },
     system: 'システム設定',
@@ -2897,7 +2897,7 @@ export default {
     welcomeMessageDesc: '訪問者が最初のメッセージを送る前に埋め込みチャットに表示されます。空欄にすると非表示になります',
     showSuggestedQuestions: '質問候補',
     showSuggestedQuestionsDesc: '訪問者の最初のメッセージの前に、エージェント設定と連携ナレッジベースをもとにした質問候補を表示します',
-    originsHint: 'WeKnora の URL（B）ではなく、埋め込みを許可するホストサイト（A）を入力します。1 行に 1 つの Origin（例: https://shop.example.com）。1 件以上必須。*.example.com に対応。',
+    originsHint: '智员知识库 の URL（B）ではなく、埋め込みを許可するホストサイト（A）を入力します。1 行に 1 つの Origin（例: https://shop.example.com）。1 件以上必須。*.example.com に対応。',
     originsRequired: '許可オリジンを1件以上入力してください',
     originsInvalid: '無効なオリジン: {origin}',
     originsWildcardProd: '本番環境ではワイルドカードのオリジン「*」は使用できません',
@@ -5893,8 +5893,8 @@ export default {
           desc: 'PaddleOCR-VL Cloud API'
         },
         weknoracloud: {
-          name: 'WeKnora Cloud',
-          desc: 'WeKnora Cloudによるドキュメント解析'
+          name: '云端服务',
+          desc: '云端服务によるドキュメント解析'
         },
         markitdown: {
           name: 'MarkItDown',
@@ -6804,7 +6804,7 @@ export default {
   },
   integrations: {
     cli: {
-      title: 'WeKnora CLI',
+      title: '智员知识库 CLI',
       subtitle: 'ターミナルからナレッジベースとドキュメントの管理、コンテンツの検索、質問ができます。CLIやMCPを通じてスクリプトやAIツールと連携できます。',
       docs: 'CLIドキュメント',
       docsHint: 'インストール手順と完全なコマンドリファレンス',
@@ -6983,7 +6983,7 @@ export default {
       capabilityMessageHistory: 'メッセージ履歴',
       capabilityMessageHistoryHint: 'ワークスペースのチャット履歴の検索と、チャット履歴の統計の読み取りができます。ワークスペース設定へのアクセス権は付与されません。',
       capabilityManageModels: 'モデルの管理',
-      capabilityManageModelsHint: 'モデル定義、認証情報、接続確認、WeKnoraCloudの認証情報を管理します。',
+      capabilityManageModelsHint: 'モデル定義、認証情報、接続確認、云端服务の認証情報を管理します。',
       capabilityManageMcpServices: 'MCPサービスの管理',
       capabilityManageMcpServicesHint: 'このプリンシパルのMCPサービス、認証情報、ツール承認ポリシー、OAuth状態を管理します。',
       capabilityManageDatasources: 'データソースの管理',
@@ -7164,8 +7164,8 @@ export default {
       storeMeta: 'Chromeウェブストア · v1.0.0'
     },
     claw: {
-      title: 'WeKnora Skill',
-      subtitle: 'WeKnora REST API経由でドキュメントをインポートし、ハイブリッド検索（ベクトル＋キーワード）を実行します。ファイルのアップロード、URLインポート、Markdownでの登録、ナレッジベース横断検索に対応します。',
+      title: '智员知识库 Skill',
+      subtitle: '智员知识库 REST API経由でドキュメントをインポートし、ハイブリッド検索（ベクトル＋キーワード）を実行します。ファイルのアップロード、URLインポート、Markdownでの登録、ナレッジベース横断検索に対応します。',
       capabilitiesTitle: 'スキルの機能',
       capabilities: {
         upload: {
@@ -7214,7 +7214,7 @@ export default {
       copyCmdSuccess: 'インストールコマンドをコピーしました',
       ecosystemNote: 'スキルはClawHub（{\'@\'}lyingbug/weknora）でホストされています。完全なAPIドキュメントとバージョン履歴はClawHubページをご覧ください。',
       installCta: 'ClawHubを開く',
-      installCtaHint: 'WeKnora Skillをインストール · 新しいタブで開きます',
+      installCtaHint: '智员知识库 Skillをインストール · 新しいタブで開きます',
       hubMeta: 'ClawHub · {\'@\'}lyingbug/weknora · MIT-0'
     }
   },

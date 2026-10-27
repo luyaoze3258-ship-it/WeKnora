@@ -96,8 +96,8 @@
     </div>
 
     <!-- Logo - Top Left -->
-    <a href="https://github.com/Tencent/WeKnora" target="_blank" class="header-logo" :title="$t('common.github')">
-      <img src="@/assets/img/weknora.png" alt="WeKnora" class="logo-image" />
+    <a href="/" target="_self" class="header-logo" title="智员知识库">
+      <img src="@/assets/img/zhiyuan-kb-logo.svg" alt="智员知识库" class="logo-image" />
     </a>
 
     <!-- Header Links - Top Right -->
@@ -148,11 +148,12 @@
         <p class="showcase-subtitle">{{ $t('platform.subtitle') }}</p>
         <p class="showcase-description">{{ $t('platform.description') }}</p>
 
+        <!-- Tags double as tabs for the carousel below -->
         <div class="feature-tags">
-          <span class="tag">{{ $t('platform.rag') }}</span>
-          <span class="tag">{{ $t('platform.agent') }}</span>
-          <span class="tag">{{ $t('platform.wiki') }}</span>
-          <span class="tag">{{ $t('platform.hybridSearch') }}</span>
+          <span v-for="(key, i) in ['rag', 'agent', 'wiki', 'hybridSearch']" :key="key" class="tag"
+            :class="{ 'is-active': activeSlide === i }" role="button" tabindex="0"
+            @click="swiperInstance?.slideToLoop(i)"
+            @keydown.enter.space.prevent="swiperInstance?.slideToLoop(i)">{{ $t(`platform.${key}`) }}</span>
         </div>
 
         <!-- Swiper Carousel -->
@@ -161,7 +162,8 @@
             delay: 4000,
             disableOnInteraction: false,
           }" :effect="'fade'" :fade-effect="{ crossFade: true }"
-            :pagination="{ clickable: true, dynamicBullets: false }" :speed="800" class="screenshot-swiper">
+            :pagination="{ clickable: true, dynamicBullets: false }" :speed="800" class="screenshot-swiper"
+            @swiper="(s) => (swiperInstance = s)" @slide-change="(s) => (activeSlide = s.realIndex)">
             <swiper-slide v-for="(slide, index) in slides" :key="index">
               <div class="slide-content">
                 <img :src="slide.image" :alt="slide.title" class="slide-image" />
@@ -348,6 +350,7 @@ import { notifyLoginSuccess } from '@/utils/loginNotify'
 import { newPasswordRules } from '@/utils/passwordPolicy'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import type { Swiper as SwiperClass } from 'swiper/types'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
@@ -380,11 +383,13 @@ const { formatRole, roleIcon } = useRoleLabel()
 
 // Swiper modules
 const modules = [Autoplay, EffectFade, Pagination]
+const swiperInstance = ref<SwiperClass | null>(null)
+const activeSlide = ref(0)
 
-// Carousel slides data
+// Carousel slides data; order matches the feature tags above (slide i = tag i)
 const slides = [
   {
-    image: screenshot4,
+    image: screenshot1,
     title: t('platform.carousel.agenticRagTitle'),
     description: t('platform.carousel.agenticRagDesc')
   },
@@ -399,7 +404,7 @@ const slides = [
     description: t('platform.carousel.wikiDesc')
   },
   {
-    image: screenshot1,
+    image: screenshot4,
     title: t('platform.carousel.smartDocRetrievalTitle'),
     description: t('platform.carousel.smartDocRetrievalDesc')
   }
@@ -842,7 +847,7 @@ onMounted(async () => {
   min-height: 100%;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(225deg, #022c22 0%, #064e3b 15%, #065f46 25%, #047857 38%, #059669 50%, #07C05F 65%, #10B981 78%, #34D399 90%, #6EE7B7 100%);
+  background: linear-gradient(225deg, #022c22 0%, #064e3b 15%, #065f46 25%, #047857 38%, #059669 50%, #2f5fd0 65%, #10B981 78%, #34D399 90%, #6EE7B7 100%);
 
   &::before {
     content: '';
