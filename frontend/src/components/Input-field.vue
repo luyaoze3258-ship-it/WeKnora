@@ -1665,15 +1665,17 @@ const onInput = (val: string | InputEvent) => {
         mentionStyle.value = {
           left: `${left}px`,
           bottom: `${bottom}px`,
-          top: 'auto'
+          top: 'auto',
+          maxHeight: `min(388px, ${Math.max(120, vh - 16)}px)`
         };
       } else {
         // Show below cursor (using top positioning)
         const top = cursorAbsoluteTop + lineHeight;
         mentionStyle.value = {
           left: `${left}px`,
-          top: `${top}px`,
-          bottom: 'auto'
+          top: `${Math.min(top, Math.max(8, vh - Math.min(388, Math.max(1, vh - 16)) - 8))}px`,
+          bottom: 'auto',
+          maxHeight: `min(388px, ${Math.max(120, vh - 16)}px)`
         };
       }
 
@@ -1734,15 +1736,17 @@ const triggerMention = () => {
     // Show above textarea
     mentionStyle.value = {
       left: `${rect.left}px`,
-      bottom: `${vh - rect.top + 8}px`, // 8px padding
-      top: 'auto'
+      bottom: `${Math.max(8, vh - rect.top - 8)}px`, // keep the panel inside the visual viewport
+      top: 'auto',
+      maxHeight: `min(388px, ${Math.max(120, vh - 16)}px)`
     };
   } else {
     // Show below textarea
     mentionStyle.value = {
       left: `${rect.left}px`,
-      top: `${rect.bottom + 8}px`,
-      bottom: 'auto'
+      top: `${Math.min(vh - 8, rect.bottom + 8)}px`,
+      bottom: 'auto',
+      maxHeight: `min(388px, ${Math.max(120, vh - 16)}px)`
     };
   }
 

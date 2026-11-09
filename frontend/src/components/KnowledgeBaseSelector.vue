@@ -236,9 +236,8 @@ const updateDropdownPosition = () => {
 
   // 垂直定位：紧贴按钮，使用合理的高度避免空白
   const preferredDropdownHeight = 280 // 优选高度（紧凑且够用）
-  const maxDropdownHeight = 360 // 最大高度
-  const minDropdownHeight = 200 // 最小高度
-  const topMargin = 20 // 顶部留白
+  const minDropdownHeight = 120 // 面板很矮时也必须服从可视视口
+  const viewportMargin = 8 // fixed 面板与可视视口边缘的最小间距
   const spaceBelow = vh - rect.bottom // 下方剩余空间
   const spaceAbove = rect.top // 上方剩余空间
   
@@ -252,21 +251,15 @@ const updateDropdownPosition = () => {
   let shouldOpenBelow: boolean
   
   // 优先考虑下方空间
-  if (spaceBelow >= minDropdownHeight + offsetY) {
-    // 下方有足够空间，向下弹出
-    actualHeight = Math.min(preferredDropdownHeight, spaceBelow - offsetY - 16)
+  if (spaceBelow >= spaceAbove) {
+    // 下方空间更大时向下弹出；高度始终不超过可视视口
+    actualHeight = Math.max(1, Math.min(preferredDropdownHeight, spaceBelow - offsetY - viewportMargin))
     shouldOpenBelow = true
     console.log('[KB Selector] Position: below button', { actualHeight })
   } else {
     // 向上弹出，优先使用 preferredHeight，必要时才扩展到 maxHeight
-    const availableHeight = spaceAbove - offsetY - topMargin
-    if (availableHeight >= preferredDropdownHeight) {
-      // 有足够空间显示优选高度
-      actualHeight = preferredDropdownHeight
-    } else {
-      // 空间不够，使用可用空间（但不小于最小高度）
-      actualHeight = Math.max(minDropdownHeight, availableHeight)
-    }
+    const availableHeight = Math.max(0, spaceAbove - offsetY - viewportMargin)
+    actualHeight = Math.max(1, Math.min(preferredDropdownHeight, availableHeight))
     shouldOpenBelow = false
     console.log('[KB Selector] Position: above button', { actualHeight })
   }
@@ -288,7 +281,8 @@ const updateDropdownPosition = () => {
     }
   } else {
     // 向上弹出：使用 bottom 定位
-    const bottom = vh - rect.top + offsetY
+    // Keep the panel inside the visual viewport; the offset belongs above the anchor.
+    const bottom = Math.max(viewportMargin, vh - rect.top - offsetY)
     console.log('[KB Selector] Opening above, bottom:', bottom)
     dropdownStyle.value = {
       position: 'fixed',

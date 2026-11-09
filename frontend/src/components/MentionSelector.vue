@@ -590,7 +590,7 @@ const scrollToItem = (index: number) => {
   border-radius: var(--td-radius-extraLarge);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04);
   width: 220px;
-  max-height: 388px;
+  max-height: min(388px, calc(100dvh - 16px));
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -674,6 +674,9 @@ const scrollToItem = (index: number) => {
 }
 
 .mention-back-row {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   min-height: 30px;
   margin-bottom: 4px;
   color: var(--td-text-color-secondary);

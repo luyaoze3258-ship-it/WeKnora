@@ -557,15 +557,15 @@ const updateDropdownPosition = () => {
   left = Math.max(minLeft, Math.min(maxLeft, left));
 
   const preferredDropdownHeight = 280;
-  const minDropdownHeight = 100;
-  const topMargin = 20;
+  const minDropdownHeight = 120;
+  const viewportMargin = 8;
   const spaceBelow = vh - rect.bottom;
   const spaceAbove = rect.top;
 
   let actualHeight: number;
 
-  if (spaceBelow >= minDropdownHeight + offsetY) {
-    actualHeight = Math.min(preferredDropdownHeight, spaceBelow - offsetY - 16);
+  if (spaceBelow >= spaceAbove) {
+    actualHeight = Math.max(1, Math.min(preferredDropdownHeight, spaceBelow - offsetY - viewportMargin));
     dropdownStyle.value = {
       position: 'fixed',
       width: `${dropdownWidth}px`,
@@ -575,16 +575,14 @@ const updateDropdownPosition = () => {
       zIndex: '10001',
     };
   } else {
-    const availableHeight = spaceAbove - offsetY - topMargin;
-    actualHeight = availableHeight >= preferredDropdownHeight
-      ? preferredDropdownHeight
-      : Math.max(minDropdownHeight, availableHeight);
+    const availableHeight = Math.max(0, spaceAbove - offsetY - viewportMargin);
+    actualHeight = Math.max(1, Math.min(preferredDropdownHeight, availableHeight));
 
     dropdownStyle.value = {
       position: 'fixed',
       width: `${dropdownWidth}px`,
       left: `${left}px`,
-      bottom: `${vh - rect.top + offsetY}px`,
+      bottom: `${Math.max(viewportMargin, vh - rect.top - offsetY)}px`,
       maxHeight: `${actualHeight}px`,
       zIndex: '10001',
     };
@@ -689,7 +687,7 @@ watch(activeDetail, (detail) => {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 6px 4px 8px;
+  padding: 6px 4px 12px;
 }
 
 .agent-group {
